@@ -1,5 +1,5 @@
 //import styles from './Card.module.css'
-import Card from './Card';
+import Card from "../Card/Card.jsx";
 
 export default function Cards(props) {
    const { characters } = props;
@@ -12,6 +12,7 @@ export default function Cards(props) {
                   species = {species}
                   gender = {gender}
                   image = {image}
+                  key = {name}
                   onClose = {() => window.alert('Emulamos que se cierra la card')}
                />
             })   
