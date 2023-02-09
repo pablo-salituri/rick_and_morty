@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar"
 export default function Nav() {
     return (
         <div>
-            {console.log('holaa')}
+            {console.log('holaaa')}
             <div><SearchBar /></div>
         </div>
     )
