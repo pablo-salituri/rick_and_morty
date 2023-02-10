@@ -12,7 +12,7 @@ function App () {
 
   const [characters, setCharacters] = useState([])
   
-  function onSearch() {
+  function onSearch(personaje) {
     const example = 
       {
         name: 'Morty Smith',
@@ -21,7 +21,9 @@ function App () {
         image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
       };
     setCharacters([example]);
+    console.log(personaje);
   }
+
 
   return (
     <div className='App' style={{ padding: '25px' }}>
