@@ -1,4 +1,4 @@
-//import Card from './components/Card.jsx'
+import Card from './components/Card/Card.jsx'
 //import SearchBar from './components/SearchBar.jsx'
 //import characters, { Rick } from './data.js'
 import './App.css'
@@ -13,16 +13,19 @@ function App () {
   const [characters, setCharacters] = useState([])
   
   function onSearch(personaje) {
-    const example = 
-      {
-        name: 'Morty Smith',
-        species: 'Human',
-        gender: 'Male',
-        image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
-      };
-    setCharacters([example]);
-    console.log(personaje);
+    fetch(`https://rickandmortyapi.com/api/character/${personaje}`)
+       .then((response) => response.json())
+       .then((data) => {
+          if (data.name) {
+             setCharacters((oldChars) => [...oldChars, data]);
+          } else {
+             window.alert('No hay personajes con ese ID');
+          }
+       });
   }
+
+/*   const onClose = () => {
+  } */
 
 
   return (
@@ -31,15 +34,15 @@ function App () {
         <Nav onSearch = {onSearch} />
       </div>
 
-{/*       <div>
+      <div>
         <Card
-          name={Rick.name}
+/*           name={Rick.name}
           species={Rick.species}
           gender={Rick.gender}
-          image={Rick.image}
+          image={Rick.image} */
           onClose={() => window.alert('Emulamos que se cierra la card')}
         />
-      </div> */}
+      </div>
 
       <div>
         <Cards
