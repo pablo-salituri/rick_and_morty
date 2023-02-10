@@ -24,8 +24,10 @@ function App () {
        });
   }
 
-/*   const onClose = () => {
-  } */
+  const onClose = (id) => {
+    setCharacters(
+      characters.filter(personaje => personaje.id !== id))
+  }
 
 
   return (
@@ -34,19 +36,19 @@ function App () {
         <Nav onSearch = {onSearch} />
       </div>
 
-      <div>
+{/*       <div>
         <Card
-/*           name={Rick.name}
+          name={Rick.name}
           species={Rick.species}
           gender={Rick.gender}
-          image={Rick.image} */
+          image={Rick.image}
           onClose={() => window.alert('Emulamos que se cierra la card')}
         />
-      </div>
+      </div> */}
 
       <div>
         <Cards
-          characters={characters}
+          characters={characters} onClose={onClose}
         />
       </div>
     </div>
