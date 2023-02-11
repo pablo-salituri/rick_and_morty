@@ -1,14 +1,14 @@
 import React from "react";
 import styles from './Detail.module.css'
 import {useState, useEffect} from 'react'
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 
 export default function Detail() {
     const {detailId} = useParams()
     const [character, setCharacter] = useState({});
-    //console.log(character.origin.name)
     const {name, status, species, gender, origin, image} = character
+    const navigate = useNavigate()
     
     useEffect(() => {
         fetch(`https://rickandmortyapi.com/api/character/${detailId}`)
@@ -25,6 +25,10 @@ export default function Detail() {
         });
         return setCharacter({});
     }, [detailId]);                   // CAMBIÉ EL ARRAY RESPECTO AL README
+
+    const backToHome = () => {
+        navigate('/Home');
+    }
   
     
     return(
@@ -41,6 +45,7 @@ export default function Detail() {
             ) : ( 
                 <h1>Loading...</h1>
             )}
+            <button onClick={backToHome}>Home</button>
         </div>
     )
 }
