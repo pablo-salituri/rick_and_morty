@@ -14,6 +14,7 @@ export default function Cards(props) {
                   image = {elemento.image}
                   key = {elemento.id}
                   onClose = {() => onClose(elemento.id)}
+                  id = {elemento.id}
                />
             })   
          }
