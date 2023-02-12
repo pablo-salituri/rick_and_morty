@@ -3,6 +3,7 @@ import Cards from './components/Cards/Cards.jsx'
 import Nav from './components/Nav/Nav.jsx'
 import About from './components/About/About.jsx'
 import Detail from './components/Detail/Detail.jsx'
+import Form from './components/Form/Form.jsx'
 import { useState } from 'react'
 import {Routes, Route} from 'react-router-dom'
 
@@ -36,6 +37,7 @@ function App () {
           <Route path="/Home" element={<Cards characters={characters} onClose={onClose}/>}> </Route>
           <Route path="/About" element={<About />}> </Route>
           <Route path="/detail/:detailId" element={<Detail />}> </Route>
+          <Route path="/" element={<Form />}> </Route>
         </Routes>
       </div>
 {/*       <div>
