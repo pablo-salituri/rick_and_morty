@@ -1,11 +1,11 @@
-import './App.css'
+//import './App.css'
 import Cards from './components/Cards/Cards.jsx'
 import Nav from './components/Nav/Nav.jsx'
 import About from './components/About/About.jsx'
 import Detail from './components/Detail/Detail.jsx'
 import Form from './components/Form/Form.jsx'
 import { useState, useEffect } from 'react'
-import {Routes, Route, useNavigate} from 'react-router-dom'
+import {Routes, Route, useLocation, useNavigate} from 'react-router-dom'
 
 
 function App () {
@@ -15,6 +15,7 @@ function App () {
   const username = 'pablo@henry.com';
   const password = 'asd123';
   const navigate = useNavigate();
+  const location = useLocation();
 
   function login(userData) {
     if (userData.username === username && userData.password === password) {
@@ -46,14 +47,13 @@ function App () {
   }
 
   return (
-    <div className='App' style={{ padding: '25px' }}>
+    <div/*  className='App' style={{ padding: '25px' }} */>
       <div>
-        <Nav onSearch = {onSearch} />
+        {location.pathname === '/' ? <Form login = {login} /> : <Nav onSearch = {onSearch} />}
         <Routes>
           <Route path="/Home" element={<Cards characters={characters} onClose={onClose}/>}> </Route>
           <Route path="/About" element={<About />}> </Route>
           <Route path="/detail/:detailId" element={<Detail />}> </Route>
-          <Route path="/" element={<Form login = {login}/>}> </Route>
         </Routes>
       </div>
     </div>

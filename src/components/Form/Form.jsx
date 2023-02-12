@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from 'react'
 import Validation from "./Validation";
-import './Form.module.css'
+import styles from './Form.module.css'
 
 export default function Form({login}) {
     const [userData, setUserData] = useState(
@@ -21,28 +21,30 @@ export default function Form({login}) {
     }
 
     return(
-        <div>
+        <div className= {styles.divForm}>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username</label>
                 <input placeholder='username' 
                     name='username' 
                     type="text" 
                     value={userData.username} 
+                    autoComplete='off'
                     onChange={handleInputChange}
-                    className = {errors.username && 'warning'}    
+                    className = {errors.username && styles.warning}    
                 />
                 <p className='danger'>{errors.username}</p>
                 
                 <label htmlFor="password">Password</label>
                 <input placeholder='password' 
                     name = 'password' 
-                    type="text" 
+                    type="password" 
                     value={userData.password} 
+                    autoComplete='off'
                     onChange={handleInputChange}
-                    className = {errors.password && 'warning'}    
+                    className = {errors.password && styles.warning}    
                 />
                 <p className='danger'>{errors.password}</p>
-                <button type='submit'>LOGIN</button>
+                <button className={styles.button} type='submit'>LOGIN</button>
             </form>
         </div>
     )

@@ -40,7 +40,7 @@ export default function Detail() {
                     <h5>Specie: {species}</h5>
                     <h5>Gender: {gender}</h5>
                     <h5>Origin: {origin?.name}</h5>
-                    <img src={`https://rickandmortyapi.com/api/character/avatar/${detailId}.jpeg`} alt={name} />
+                    <img src={image} alt={name} />
                 </div>
             ) : ( 
                 <h1>Loading...</h1>
