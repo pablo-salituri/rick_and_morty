@@ -30,9 +30,9 @@ export default function Form({login}) {
                     value={userData.username} 
                     autoComplete='off'
                     onChange={handleInputChange}
-                    className = {errors.username && styles.warning}    
+                    className = {(errors.username && styles.warning) || styles.input}    
                 />
-                <p className='danger'>{errors.username}</p>
+                <p className={styles.danger}>{errors.username}</p>
                 
                 <label htmlFor="password">Password</label>
                 <input placeholder='password' 
@@ -41,9 +41,9 @@ export default function Form({login}) {
                     value={userData.password} 
                     autoComplete='off'
                     onChange={handleInputChange}
-                    className = {errors.password && styles.warning}    
+                    className = {(errors.password && styles.warning) || styles.input}    
                 />
-                <p className='danger'>{errors.password}</p>
+                <p className={styles.danger}>{errors.password}</p>
                 <button className={styles.button} type='submit'>LOGIN</button>
             </form>
         </div>
