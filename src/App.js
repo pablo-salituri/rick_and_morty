@@ -4,13 +4,29 @@ import Nav from './components/Nav/Nav.jsx'
 import About from './components/About/About.jsx'
 import Detail from './components/Detail/Detail.jsx'
 import Form from './components/Form/Form.jsx'
-import { useState } from 'react'
-import {Routes, Route} from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import {Routes, Route, useNavigate} from 'react-router-dom'
 
 
 function App () {
 
-  const [characters, setCharacters] = useState([])
+  const [characters, setCharacters] = useState([]);
+  const [access, setAccess] = useState(false);
+  const username = 'pablo@henry.com';
+  const password = 'asd123';
+  const navigate = useNavigate();
+
+  function login(userData) {
+    if (userData.username === username && userData.password === password) {
+      setAccess(true);
+      navigate('/Home');
+    }
+  }
+
+  useEffect(() => {
+    !access && navigate('/');
+  }, [access]);
+  
   
   function onSearch(personaje) {
     fetch(`https://rickandmortyapi.com/api/character/${personaje}`)
@@ -37,14 +53,9 @@ function App () {
           <Route path="/Home" element={<Cards characters={characters} onClose={onClose}/>}> </Route>
           <Route path="/About" element={<About />}> </Route>
           <Route path="/detail/:detailId" element={<Detail />}> </Route>
-          <Route path="/" element={<Form />}> </Route>
+          <Route path="/" element={<Form login = {login}/>}> </Route>
         </Routes>
       </div>
-{/*       <div>
-        <Cards
-          characters={characters} onClose={onClose}
-        />
-      </div> */}
     </div>
   )
 }
