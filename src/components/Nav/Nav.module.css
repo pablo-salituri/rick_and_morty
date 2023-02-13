@@ -1,3 +1,12 @@
-.div {
-    background-color: rgba(111, 215, 149, 0.575);
+.divNav {
+/*     background-color: rgba(111, 215, 149, 0.575);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 8vh;
+    width: 50%;
+    margin-top: 2em;
+    font-size: 1.5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white; */
 }
