@@ -1,4 +1,4 @@
-//import './App.css'
+import styles from './App.module.css'
 import Cards from './components/Cards/Cards.jsx'
 import Nav from './components/Nav/Nav.jsx'
 import About from './components/About/About.jsx'
@@ -22,6 +22,7 @@ function App () {
       setAccess(true);
       navigate('/Home');
     }
+    else alert('Los datos ingresados son incorrectos.')
   }
 
   useEffect(() => {
@@ -47,15 +48,13 @@ function App () {
   }
 
   return (
-    <div/*  className='App' style={{ padding: '25px' }} */>
-      <div>
-        {location.pathname === '/' ? <Form login = {login} /> : <Nav onSearch = {onSearch} />}
-        <Routes>
-          <Route path="/Home" element={<Cards characters={characters} onClose={onClose}/>}> </Route>
-          <Route path="/About" element={<About />}> </Route>
-          <Route path="/detail/:detailId" element={<Detail />}> </Route>
-        </Routes>
-      </div>
+    <div /* className={styles.App} */>
+      {location.pathname === '/' ? <Form login = {login} /> : <Nav onSearch = {onSearch} />}
+      <Routes>
+        <Route path="/Home" element={<Cards characters={characters} onClose={onClose}/>}> </Route>
+        <Route path="/About" element={<About />}> </Route>
+        <Route path="/detail/:detailId" element={<Detail />}> </Route>
+      </Routes>
     </div>
   )
 }
