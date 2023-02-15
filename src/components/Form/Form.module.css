@@ -10,6 +10,7 @@
   border-radius: 0.2em;
   height: 1.8em;
   width: 75%;
+  margin-top: -2em;
 }
   
 .danger {
@@ -29,8 +30,8 @@ form {
   background-color: rgba(84, 124, 70, 0.8);
   border: 1.5px solid white;
   border-radius: 10px;
-  width: 15%;
-  height: 40%;
+  width: 300px;
+  height: 430px;
   padding: 1.5em;
 }
 

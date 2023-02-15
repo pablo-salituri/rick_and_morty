@@ -7,11 +7,11 @@ import {Link} from 'react-router-dom'
 export default function Nav(props) {
     return (
         <div className = {styles.divNav}>
-            <Link to="/Home">
+            <Link to="/Home" className = {styles.linkNav}>
                 <span>Home</span>
             </Link>
             <SearchBar onSearch = {props.onSearch}/* {(characterID) => window.alert(characterID)} *//>
-            <Link to="About">
+            <Link to="About" className = {styles.linkNav}>
                 <span>About</span>
             </Link>
         </div>

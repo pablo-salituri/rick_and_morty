@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("https://www.teahub.io/photos/full/193-1931528_rick-y-morty-fondo-de-pantalla-pc.jpg");
+  background: url("https://www.teahub.io/photos/full/193-1931528_rick-y-morty-fondo-de-pantalla-pc.jpg") no-repeat center center fixed;
   background-size: cover;
   font-family: 'Courier New', Courier, monospace;
 }
