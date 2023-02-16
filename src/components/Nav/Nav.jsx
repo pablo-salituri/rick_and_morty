@@ -14,6 +14,9 @@ export default function Nav(props) {
             <Link to="About" className = {styles.linkNav}>
                 <span>About</span>
             </Link>
+            <Link to="favorites" className = {styles.linkNav}>
+                <span>Favorites</span>
+            </Link>
         </div>
     )
 }

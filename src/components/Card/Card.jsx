@@ -1,12 +1,13 @@
 import styles from './Card.module.css'
 import { Link }  from 'react-router-dom'
 import {agregarFavorito, eliminarFavorito} from '../Redux/actions'
-import { useDispatch } from 'react-redux' //agregado por daiana
-import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux' //agregado por daiana
+import { useState, useEffect } from 'react'
 
 export default function Card({name, species, gender, image, id, onClose/* , agregarFavorito, eliminarFavorito */}) {       // es lo mismo que "props"
 
    const dispatch = useDispatch();
+   const myFavorites = useSelector(state => state.myFavorites)
    const [isFav, setIsFav] = useState(false);
 
    const handleFavorite = () => {
@@ -16,9 +17,17 @@ export default function Card({name, species, gender, image, id, onClose/* , agre
       }
       else {
          setIsFav(true);
-         dispatch(agregarFavorito(name, species, gender, image, id, onClose))
+         dispatch(agregarFavorito({name, species, gender, image, id, onClose}))
       }
    }
+
+   useEffect(() => {
+      myFavorites.forEach((fav) => {
+         if (fav.id === id) {
+            setIsFav(true);
+         }
+      });
+   }, [myFavorites]);
 
    return (
          <div className= {styles.div}>

@@ -4,6 +4,7 @@ import Nav from './components/Nav/Nav.jsx'
 import About from './components/About/About.jsx'
 import Detail from './components/Detail/Detail.jsx'
 import Form from './components/Form/Form.jsx'
+import Favorites from './components/Favorites/Favorites.jsx'
 import { useState, useEffect } from 'react'
 import {Routes, Route, useLocation, useNavigate} from 'react-router-dom'
 
@@ -13,7 +14,7 @@ function App () {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const username = 'pablo@henry.com';
-  const password = 'asd123';
+  const password = '123456';
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -53,6 +54,7 @@ function App () {
       <Routes>
         <Route path="/Home" element={<Cards characters={characters} onClose={onClose}/>}> </Route>
         <Route path="/About" element={<About />}> </Route>
+        <Route path="/favorites" element={<Favorites />}> </Route>
         <Route path="/detail/:detailId" element={<Detail />}> </Route>
       </Routes>
     </div>

@@ -28,7 +28,7 @@ export default function Form({login}) {
                     name='username' 
                     type="text" 
                     value={userData.username} 
-                    autoComplete='off'
+                    //autoComplete='off'
                     onChange={handleInputChange}
                     className = {(errors.username && styles.warning) || styles.input}    
                 />
@@ -39,7 +39,7 @@ export default function Form({login}) {
                     name = 'password' 
                     type="password" 
                     value={userData.password} 
-                    autoComplete='off'
+                    //autoComplete='off'
                     onChange={handleInputChange}
                     className = {(errors.password && styles.warning) || styles.input}    
                 />
