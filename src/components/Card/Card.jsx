@@ -1,9 +1,36 @@
 import styles from './Card.module.css'
 import { Link }  from 'react-router-dom'
+import {agregarFavorito, eliminarFavorito} from '../Redux/actions'
+import { useDispatch } from 'react-redux' //agregado por daiana
+import { useState } from 'react'
 
-export default function Card({name, species, gender, image, id, onClose}) {       // es lo mismo que "props"
+export default function Card({name, species, gender, image, id, onClose/* , agregarFavorito, eliminarFavorito */}) {       // es lo mismo que "props"
+
+   const dispatch = useDispatch();
+   const [isFav, setIsFav] = useState(false);
+
+   const handleFavorite = () => {
+      if (isFav) {
+         setIsFav(false);
+         dispatch(eliminarFavorito(id))
+      }
+      else {
+         setIsFav(true);
+         dispatch(agregarFavorito(name, species, gender, image, id, onClose))
+      }
+   }
+
    return (
          <div className= {styles.div}>
+            
+            {
+               isFav ? (
+                  <button onClick={handleFavorite}>❤️</button>
+               ) : (
+                  <button onClick={handleFavorite}>🤍</button>
+               )
+            }
+
             <button onClick={onClose}>X</button>
                <section>
                   <Link to={`/detail/${id}`}>
@@ -16,3 +43,13 @@ export default function Card({name, species, gender, image, id, onClose}) {     
          </div>
    );
 }
+
+
+/* const mapDispatchToProps = (dispatch) => {
+   return {
+      agregarFavorito: (personaje) => dispatch(agregarFavorito(personaje)),
+      eliminarFavorito: (id) => dispatch(eliminarFavorito(id))
+   }
+}
+
+export default connect(null, mapDispatchToProps)(Card) */
