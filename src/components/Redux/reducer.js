@@ -1,7 +1,8 @@
 import { AGREGAR_FAVORITO, ELIMINAR_FAVORITO } from "./types";
 
 const initialState = {
-    myFavorites: []
+    myFavorites: [],
+    allCharacters: []
 }
 
 const reducer = (state = initialState, {type, payload}) => {        // action = {type, payload}
@@ -9,7 +10,8 @@ const reducer = (state = initialState, {type, payload}) => {        // action = 
         case AGREGAR_FAVORITO:
             return {
                 ...state,
-                myFavorites: [...state.myFavorites, payload]
+                myFavorites: [...state.allCharacters, payload],
+                allCharacters: [...state.allCharacters]
             };
         case ELIMINAR_FAVORITO:
             return {
