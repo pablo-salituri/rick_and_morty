@@ -4,6 +4,7 @@
 //import { MapStateToProps } from 'react-redux'
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import styles from './Favorites.module.css'
 //import { useDispatch } from "react-redux";
 import { orderCards, filterCards} from '../Redux/actions'
 
@@ -51,7 +52,7 @@ const Favorites = () => {
 
     return(
         <div>
-            <div>
+            <div className = {styles.opciones}>
                 <select name="Order" id="Order" onChange={handleOrder}>
                     <option value="Ascendente">Ascendente</option> 
                     <option value="Descendente">Descendente</option> 
@@ -65,23 +66,25 @@ const Favorites = () => {
                     <option value="Unknown">Unknown</option> 
                 </select>
             </div>
+            <div className = {styles.cartasFav}>
             {
                 myFavorites.map(function(elem, index) {
                     return (
                         <div key={index}>
-                            <button onClick={elem.onClose}>X</button>
-                            <section>
+                            {/* <button onClick={elem.onClose}>X</button> */}
+                            <section className = {styles.cartaFav}>
+                                <img className = {styles.imgFav} src={elem.image} alt="" />   
                                 <Link to={`/detail/${elem.id}`}>
                                     <h2>{elem.name}</h2> 
                                 </Link>
                                 <h2>{elem.species}</h2>
                                 <h2>{elem.gender}</h2>
                             </section>
-                            <img  src={elem.image} alt="" />
                         </div>
                     )
                 })
             }
+            </div>
         </div>
     )
 }

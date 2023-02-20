@@ -3,6 +3,7 @@ import { Link }  from 'react-router-dom'
 import {agregarFavorito, eliminarFavorito} from '../Redux/actions'
 import { useDispatch, useSelector } from 'react-redux' //agregado por daiana
 import { useState, useEffect } from 'react'
+import style from './Card.module.css'
 
 export default function Card({name, species, gender, image, id, onClose/* , agregarFavorito, eliminarFavorito */}) {       // es lo mismo que "props"
 
@@ -43,12 +44,12 @@ export default function Card({name, species, gender, image, id, onClose/* , agre
             <button onClick={onClose}>X</button>
                <section>
                   <Link to={`/detail/${id}`}>
-                     <h2>{name}</h2> 
+                     <h2 className = {style.h2Card}>{name}</h2> 
                   </Link>
-                  <h2>{species}</h2>
-                  <h2>{gender}</h2>
+                  <h2 className = {style.h2Card}>{species}</h2>
+                  <h2 className = {style.h2Card}>{gender}</h2>
                </section>
-            <img  src={image} alt="" />
+            <img className = {style.imgCard} src={image} alt="" />
          </div>
    );
 }
