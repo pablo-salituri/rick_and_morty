@@ -11,12 +11,15 @@ const reducer = (state = initialState, {type, payload}) => {        // action = 
             return {
                 ...state,
                 myFavorites: [...state.myFavorites, payload],
-                allCharacters: [...state.myFavorites, payload]
+                allCharacters: [...state.allCharacters, payload]
             };
         case ELIMINAR_FAVORITO:
             return {
                 ...state,
                 myFavorites: state.myFavorites.filter(function(elem) {
+                    return elem.id !== payload
+                }),
+                allCharacters: state.allCharacters.filter(function(elem) {
                     return elem.id !== payload
                 })
             };
@@ -33,8 +36,8 @@ const reducer = (state = initialState, {type, payload}) => {        // action = 
                 ...state,
                 myFavorites: 
                     payload === 'Ascendente'
-                    ? state.allCharacters.sort((a,b) => a.id - b.id)
-                    : state.allCharacters.sort((a,b) => b.id - a.id)                
+                    ? state.myFavorites.sort((a,b) => a.id - b.id)
+                    : state.myFavorites.sort((a,b) => b.id - a.id)                
             }
         default:
             return {...state};
