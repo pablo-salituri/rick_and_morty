@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from './SearchBar.module.css'
 
 export default function SearchBar(props) {
    const [personaje, setPersonaje] = useState('')
@@ -9,9 +10,9 @@ export default function SearchBar(props) {
    }
 
    return (
-      <div>
+      <div className = {styles.SBdiv}>
          <input type='search' value={personaje} onChange={handlePersonaje} />
-         <button onClick={() => props.onSearch(personaje)}>Agregar</button>
+         <button className = {styles.SBButton} onClick={() => props.onSearch(personaje)}>+</button>
       </div>
    );
 }

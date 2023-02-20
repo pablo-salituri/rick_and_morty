@@ -1,12 +1,13 @@
 .divNav {
-    background-color: rgba(111, 215, 149, 0.575);
+    background-color: brown;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     height: 8vh;
-    width: 50%;
+    width: 70%;
     margin-top: 2em;
+    margin-bottom: 3em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 

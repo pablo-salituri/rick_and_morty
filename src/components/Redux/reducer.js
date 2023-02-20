@@ -24,13 +24,22 @@ const reducer = (state = initialState, {type, payload}) => {        // action = 
                 })
             };
         case FILTER:
-            const filtro = state.allCharacters.filter(function(elem) {
+            return {
+                ...state,
+                myFavorites:
+                    payload === 'Mostrar Todos'
+                    ? [...state.allCharacters]
+                    : state.allCharacters.filter(function(elem) {
+                        return elem.gender === payload
+                    })
+            }
+/*             const filtro = state.allCharacters.filter(function(elem) {
                 return elem.gender === payload
             })
             return {
                 ...state,
                 myFavorites: filtro    
-            };
+            }; */
         case ORDER:
             return {
                 ...state,

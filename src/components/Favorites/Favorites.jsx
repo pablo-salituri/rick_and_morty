@@ -58,6 +58,7 @@ const Favorites = () => {
                 </select>
 
                 <select name="Filter" id="Filter" onChange={handleFilter}>
+                    <option value="Mostrar Todos">Mostrar Todos</option> 
                     <option value="Male">Male</option> 
                     <option value="Female">Female</option> 
                     <option value="Genderless">Genderless</option> 
