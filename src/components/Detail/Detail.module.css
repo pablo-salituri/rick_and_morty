@@ -1,3 +1,18 @@
-.div {
-    color: white;
+.divDetail {
+    color: black;
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(197,70,70,0.8);
+    padding: 1.3em;
+}
+
+.imgDetail {
+    width: 11em;
+    border-radius: 50%;
+}
+
+.h5Detail {
+    height: 0em;
 }
