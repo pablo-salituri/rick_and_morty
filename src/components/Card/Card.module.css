@@ -8,8 +8,33 @@
     border: 5px solid black;
     border-radius: 40px;
     margin: 20px 0px;
-    /* text-decoration: underline; */
+    /* animation: animate 1s ease-in-out infinite alternate; */
+}
 
+.div:hover{
+    animation: animate 1.25s ease-in-out infinite alternate, float 1.7s infinite;
+}
+
+@keyframes animate {
+    from {
+        box-shadow: 0 0 30px red;
+    }
+    to {
+        box-shadow: 0 0 30px rgb(23,143,23);
+                    /* 0 0 10px blue;  */
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0,0)
+    }
+    50% {
+        transform: translate(0,-0.5em)
+    }
+    100% {
+        transform: translate(0,0)
+    }
 }
 
 .imgCard {

@@ -27,7 +27,7 @@ export default function Detail() {
     }, [detailId]);                   // CAMBIÉ EL ARRAY RESPECTO AL README
 
     const backToHome = () => {
-        navigate('/Home');
+        navigate(-1);
     }
   
     
@@ -45,7 +45,7 @@ export default function Detail() {
             ) : ( 
                 <h1>Loading...</h1>
             )}
-            <button onClick={backToHome}>Home</button>
+            <button onClick={backToHome}>Volver</button>
         </div>
     )
 }
