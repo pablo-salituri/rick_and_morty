@@ -35,13 +35,13 @@ export default function Card({name, species, gender, image, id, onClose/* , agre
             
             {
                isFav ? (
-                  <button onClick={handleFavorite}>❤️</button>
+                  <button className = {style.butFavCard} onClick={handleFavorite}>❤️</button>
                ) : (
-                  <button onClick={handleFavorite}>🤍</button>
+                  <button className = {style.butFavCard} onClick={handleFavorite}>🤍</button>
                )
             }
 
-            <button onClick={onClose}>X</button>
+            <button className = {style.butCloseCard} onClick={onClose}>X</button>
                <section>
                   <Link to={`/detail/${id}`}>
                      <h2 className = {style.h2Card}>{name}</h2> 

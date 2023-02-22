@@ -8,6 +8,7 @@
     border: 5px solid black;
     border-radius: 40px;
     margin: 20px 0px;
+    position: relative;
     /* animation: animate 1s ease-in-out infinite alternate; */
 }
 
@@ -46,15 +47,28 @@
     margin-right: 30px;
 }
 
-button {
+.butCloseCard {
     background-color: rgb(250, 71, 71);
     border: 0.5px solid black;
     color: white;
     font-weight: bold;
     height: fit-content;
-    margin-top: 10px;
     padding: 6px 10px;
     border-radius: 50%;
+    position: absolute;
+    right: 3%;
+    top: 6%;
+}
+
+.butFavCard {
+    background-color: transparent;
+    scale: 1.8;
+    border: none;
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    height: fit-content;
+    width: fit-content;
 }
 
 .h2Card {
