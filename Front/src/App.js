@@ -32,7 +32,8 @@ function App () {
   
   
   function onSearch(personaje) {
-    fetch(`https://rickandmortyapi.com/api/character/${personaje}`)
+    //fetch(`https://rickandmortyapi.com/api/character/${personaje}`)
+    fetch(`http://localhost:3001/rickandmorty/character/${personaje}`)
        .then((response) => response.json())
        .then((data) => {
           if (data.name) {
