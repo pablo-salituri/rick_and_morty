@@ -71,9 +71,17 @@
     width: fit-content;
 }
 
+.butFavCard, .butCloseCard:hover {
+    cursor: pointer;
+}
+
 .h2Card {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid black;
     color: rgb(12, 12, 156);
+}
+
+.linkCard {
+    text-decoration: none;
 }

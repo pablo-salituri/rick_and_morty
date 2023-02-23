@@ -42,13 +42,13 @@ export default function Card({name, species, gender, image, id, onClose/* , agre
             }
 
             <button className = {style.butCloseCard} onClick={onClose}>X</button>
+            <Link className = {style.linkCard} to={`/detail/${id}`}>
                <section>
-                  <Link to={`/detail/${id}`}>
-                     <h2 className = {style.h2Card}>{name}</h2> 
-                  </Link>
+                  <h2 className = {style.h2Card}>{name}</h2> 
                   <h2 className = {style.h2Card}>{species}</h2>
                   <h2 className = {style.h2Card}>{gender}</h2>
                </section>
+            </Link>
             <img className = {style.imgCard} src={image} alt="" />
          </div>
    );
