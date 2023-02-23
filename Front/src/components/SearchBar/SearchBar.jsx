@@ -12,7 +12,11 @@ export default function SearchBar(props) {
    return (
       <div className = {styles.SBdiv}>
          <input type='search' value={personaje} onChange={handlePersonaje} />
-         <button className = {styles.SBButton} onClick={() => props.onSearch(personaje)}>+</button>
+         <button className = {styles.SBButton} onClick={() => {
+            props.onSearch(personaje);
+            setPersonaje('')
+            }
+         }>+</button>
       </div>
    );
 }

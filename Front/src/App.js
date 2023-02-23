@@ -41,7 +41,7 @@ function App () {
           } else {
              window.alert('No hay personajes con ese ID');
           }
-       });
+       })
   }
 
   const onClose = (id) => {
