@@ -1,9 +1,26 @@
-var http = require('http');
-const getCharById = require('./controllers/getCharById.js')
-const getCharDetail = require('./controllers/getCharDetail.js')
+//var http = require('http');
+//const getCharById = require('./controllers/getCharById.js')
+//const getCharDetail = require('./controllers/getCharDetail.js')
+const express = require('express');
+const server = express();
 const PORT = 3001;
+const router = require('./routes/index')
 
-http
+server.use(express.json())      // para que funcinoe mi server con formato JSON
+server.use('/', router)         // TODO: ver el CR
+
+
+server.listen(PORT, () => {
+    console.log('Server raised in port ' + PORT)
+});
+
+
+
+
+/***********************************************************************************************
+
+
+/* http
     .createServer((req,res) => {
         res.setHeader('Access-Control-Allow-Origin', '*');
         const id = req.url.slice(req.url.lastIndexOf('/')+1);
@@ -15,9 +32,9 @@ http
         }
     })
     .listen(PORT,'localhost');
+ */
 
-
-
+/**********************************************************************************************
 
 
 /* const character = require('./utils/data.js')
