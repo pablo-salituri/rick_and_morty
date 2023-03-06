@@ -3,11 +3,18 @@
 //const getCharDetail = require('./controllers/getCharDetail.js')
 const express = require('express');
 const server = express();
+const cors = require('cors');
 const PORT = 3001;
 const router = require('./routes/index')
+const favsRouter = require('./routes/favsRouter')
 
-server.use(express.json())      // para que funcinoe mi server con formato JSON
-server.use('/', router)         // TODO: ver el CR
+server.use(express.json())                  // *Para que funcione mi server con formato JSON
+server.use(cors())
+server.use('/rickandmorty', router)         // *Las request que vienen desde el front llegan a este router --> Es un MW para '/' que utiliza "router"
+                                            // *Todas las request que comiencen con "/" las va a redirigir al archivo /routes/index 
+                                            // ? SI HAY PROBLEMAS, VER LA LINEA 10
+server.use('/favs', favsRouter)         
+
 
 
 server.listen(PORT, () => {

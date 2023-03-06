@@ -1,9 +1,6 @@
 const { Router} = require('express')
 
-let BaseDeDatos = [];
+let favs = [];
 
 
-
-
-
-module.exports = BaseDeDatos
+module.exports = {favs}

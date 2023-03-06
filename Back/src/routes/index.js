@@ -7,7 +7,7 @@ const router = Router();
 // ya tienen "/rickandmorty/" antes
 router.get("/onsearch/:id", getCharById)
 
-router.get("/detail/:id", getCharDetail)
+router.get("/detail/:detailId", getCharDetail)
 
 
 
