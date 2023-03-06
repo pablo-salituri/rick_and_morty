@@ -10,15 +10,16 @@ const reducer = (state = initialState, {type, payload}) => {        // action = 
         case AGREGAR_FAVORITO:
             return {
                 ...state,
-                myFavorites: [...state.myFavorites, payload],
-                allCharacters: [...state.allCharacters, payload]
+                myFavorites: payload,
+                allCharacters: payload
             };
         case ELIMINAR_FAVORITO:
             return {
                 ...state,
-                myFavorites: state.myFavorites.filter(function(elem) {
+                /* myFavorites: state.myFavorites.filter(function(elem) {
                     return elem.id !== payload
-                }),
+                }), */
+                myFavorites: payload,
                 allCharacters: state.allCharacters.filter(function(elem) {
                     return elem.id !== payload
                 })
