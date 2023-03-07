@@ -4,12 +4,14 @@
 const express = require('express');
 const server = express();
 const cors = require('cors');
+const morgan = require('morgan');
 const PORT = 3001;
 const router = require('./routes/index')
 const favsRouter = require('./routes/favsRouter')
 
 server.use(express.json())                  // *Para que funcione mi server con formato JSON
 server.use(cors())
+server.use(morgan('dev'));
 server.use('/rickandmorty', router)         // *Las request que vienen desde el front llegan a este router --> Es un MW para '/' que utiliza "router"
                                             // *Todas las request que comiencen con "/" las va a redirigir al archivo /routes/index 
                                             // ? SI HAY PROBLEMAS, VER LA LINEA 10

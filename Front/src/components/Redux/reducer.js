@@ -2,7 +2,8 @@ import { AGREGAR_FAVORITO, ELIMINAR_FAVORITO, FILTER, ORDER } from "./types";
 
 const initialState = {
     myFavorites: [],
-    allCharacters: []
+    allCharacters: [],
+    errors: {}
 }
 
 const reducer = (state = initialState, {type, payload}) => {        // action = {type, payload}
@@ -11,7 +12,8 @@ const reducer = (state = initialState, {type, payload}) => {        // action = 
             return {
                 ...state,
                 myFavorites: payload,
-                allCharacters: payload
+                allCharacters: payload,
+                errors: {}
             };
         case ELIMINAR_FAVORITO:
             return {
@@ -22,8 +24,15 @@ const reducer = (state = initialState, {type, payload}) => {        // action = 
                 myFavorites: payload,
                 allCharacters: state.allCharacters.filter(function(elem) {
                     return elem.id !== payload
-                })
+                }),
+                errors: {}
             };
+        case 'GET_FAVORITO':
+            return {
+                ...state,
+                myFavorites: payload,
+                errors: {}
+            }
         case FILTER:
             return {
                 ...state,
@@ -48,6 +57,11 @@ const reducer = (state = initialState, {type, payload}) => {        // action = 
                     payload === 'Ascendente'
                     ? state.myFavorites.sort((a,b) => a.id - b.id)
                     : state.myFavorites.sort((a,b) => b.id - a.id)                
+            }
+        case "ERROR":
+            return {
+                ...state,
+                errors: payload
             }
         default:
             return {...state};
