@@ -7,21 +7,43 @@ const cors = require('cors');
 const morgan = require('morgan');
 const PORT = 3001;
 const router = require('./routes/index')
-const favsRouter = require('./routes/favsRouter')
+const favsRouter = require('./routes/favsRouter');
+const {saveApiData} = require('../src/controllers/saveApiData.js');
+const { sequelize } = require('./DB_connection');
+
 
 server.use(express.json())                  // *Para que funcione mi server con formato JSON
 server.use(cors())
 server.use(morgan('dev'));
 server.use('/rickandmorty', router)         // *Las request que vienen desde el front llegan a este router --> Es un MW para '/' que utiliza "router"
                                             // *Todas las request que comiencen con "/" las va a redirigir al archivo /routes/index 
-                                            // ? SI HAY PROBLEMAS, VER LA LINEA 10
+                                            // SI HAY PROBLEMAS, VER LA LINEA 10
 server.use('/favs', favsRouter)         
 
 
 
-server.listen(PORT, () => {
-    console.log('Server raised in port ' + PORT)
-});
+
+/* server.listen(PORT, () => {
+  sequelize.sync({ force: true });
+  console.log("Server raised in port " + PORT + ", and DB SYNC");
+}); */
+// Hernan
+
+sequelize.sync({force: true})
+    .then(() => {
+        saveApiData();
+        //console.log(saveApiData());
+        console.log('DB Conectada');
+        server.listen(PORT, () => {
+            console.log('Server raised in port ' + PORT)
+        });
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+
+//Dai
+
 
 
 
